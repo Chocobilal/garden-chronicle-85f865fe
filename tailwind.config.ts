@@ -7,31 +7,19 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      padding: "1.5rem",
+      screens: { "2xl": "1400px" },
     },
     extend: {
       fontFamily: {
-        display: ["'Playfair Display'", "Georgia", "serif"],
+        display: ["'Cormorant Garamond'", "Georgia", "serif"],
+        sub: ["'DM Sans'", "system-ui", "sans-serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
+        mono: ["'JetBrains Mono'", "monospace"],
+        arabic: ["'Noto Naskh Arabic'", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
-        earth: {
-          DEFAULT: "hsl(var(--earth))",
-          foreground: "hsl(var(--earth-foreground))",
-        },
-        leaf: {
-          DEFAULT: "hsl(var(--leaf))",
-          soft: "hsl(var(--leaf-soft))",
-        },
-        health: {
-          good: "hsl(var(--health-good))",
-          monitor: "hsl(var(--health-monitor))",
-          attention: "hsl(var(--health-attention))",
-        },
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -39,6 +27,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          mid: "hsl(var(--primary-mid))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -55,6 +44,11 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          light: "hsl(var(--accent-light))",
+        },
+        sage: {
+          DEFAULT: "hsl(var(--sage))",
+          foreground: "hsl(var(--sage-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -63,6 +57,13 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        health: {
+          good: "hsl(var(--health-good))",
+          attention: "hsl(var(--health-attention))",
+          critical: "hsl(var(--health-critical))",
+          recovering: "hsl(var(--health-recovering))",
+          "no-data": "hsl(var(--health-no-data))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -77,37 +78,24 @@ export default {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
-        },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
-        },
+        md: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 8px)",
       },
       backgroundImage: {
         "gradient-hero": "var(--gradient-hero)",
-        "gradient-leaf": "var(--gradient-leaf)",
-        "gradient-amber": "var(--gradient-amber)",
+        "gradient-gold": "var(--gradient-gold)",
         "gradient-cream": "var(--gradient-cream)",
+        "gradient-leaf": "var(--gradient-leaf)",
       },
       boxShadow: {
         soft: "var(--shadow-soft)",
         card: "var(--shadow-card)",
         deep: "var(--shadow-deep)",
+        "gold-glow": "var(--shadow-gold-glow)",
+      },
+      keyframes: {
+        "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
+        "accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
