@@ -14,16 +14,153 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      tree_updates: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          metadata: Json | null
+          note: string | null
+          photo_date: string | null
+          photo_url: string | null
+          tree_id: string
+          update_type: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          metadata?: Json | null
+          note?: string | null
+          photo_date?: string | null
+          photo_url?: string | null
+          tree_id: string
+          update_type?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          metadata?: Json | null
+          note?: string | null
+          photo_date?: string | null
+          photo_url?: string | null
+          tree_id?: string
+          update_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tree_updates_tree_id_fkey"
+            columns: ["tree_id"]
+            isOneToOne: false
+            referencedRelation: "trees"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      trees: {
+        Row: {
+          actual_yield: number | null
+          canopy_diameter: string | null
+          created_at: string
+          flowering_date: string | null
+          harvest_date: string | null
+          health_status: Database["public"]["Enums"]["health_status"]
+          height: string | null
+          id: string
+          last_fertilization: string | null
+          last_pruning: string | null
+          line: string
+          line_position: string
+          notes: string | null
+          pest_observations: string | null
+          planting_date: string
+          position: number
+          updated_at: string
+          variety: string
+          yield_expectation: string
+        }
+        Insert: {
+          actual_yield?: number | null
+          canopy_diameter?: string | null
+          created_at?: string
+          flowering_date?: string | null
+          harvest_date?: string | null
+          health_status?: Database["public"]["Enums"]["health_status"]
+          height?: string | null
+          id: string
+          last_fertilization?: string | null
+          last_pruning?: string | null
+          line: string
+          line_position: string
+          notes?: string | null
+          pest_observations?: string | null
+          planting_date?: string
+          position: number
+          updated_at?: string
+          variety?: string
+          yield_expectation?: string
+        }
+        Update: {
+          actual_yield?: number | null
+          canopy_diameter?: string | null
+          created_at?: string
+          flowering_date?: string | null
+          harvest_date?: string | null
+          health_status?: Database["public"]["Enums"]["health_status"]
+          height?: string | null
+          id?: string
+          last_fertilization?: string | null
+          last_pruning?: string | null
+          line?: string
+          line_position?: string
+          notes?: string | null
+          pest_observations?: string | null
+          planting_date?: string
+          position?: number
+          updated_at?: string
+          variety?: string
+          yield_expectation?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
+      health_status: "Good" | "Monitor" | "Attention"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +287,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+      health_status: ["Good", "Monitor", "Attention"],
+    },
   },
 } as const
