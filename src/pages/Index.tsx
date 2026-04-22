@@ -5,12 +5,12 @@ import { GARDEN, LINES, type Tree, healthBadge, healthDot, formatDateShort } fro
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { FallingLeaves } from "@/components/FallingLeaves";
-import { GeometricDivider, IslamicStar, MangoLeaf, MangoTreeSilhouette, TwelvePointStar } from "@/components/Decorations";
+import { GeometricDivider, IslamicStar, TwelvePointStar } from "@/components/Decorations";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, ChevronDown, Droplets, MapPin, QrCode, Ruler, Smartphone, Trees as TreesIcon, Apple, Square } from "lucide-react";
-import gardenEmblem from "@/assets/garden-emblem.png";
+import gardenLogo from "@/assets/garden-logo.png";
 
 const Stat = ({ Icon, value, label }: { Icon: React.ComponentType<{ className?: string }>; value: string; label: string }) => (
   <div className="flex flex-col items-center gap-2 px-6 min-w-[140px]">
@@ -52,26 +52,17 @@ export default function Index() {
         <FallingLeaves />
         {/* Geometric pattern overlay */}
         <div className="absolute inset-0 geo-pattern opacity-30 pointer-events-none" />
-        {/* Tree silhouettes at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 flex items-end justify-around pointer-events-none opacity-30 text-primary-mid">
-          {Array.from({ length: 7 }).map((_, i) => (
-            <MangoTreeSilhouette
-              key={i}
-              className="h-32 md:h-44"
-              style={{ height: 80 + (i % 3) * 30 }}
-            />
-          ))}
-        </div>
+        {/* Geometric pattern handled above; tree silhouettes removed per design */}
 
         <div className="relative z-10 container text-center text-primary-foreground py-20">
           <div className="animate-fade-up">
-            {/* Garden emblem */}
+            {/* Garden logo */}
             <img
-              src={gardenEmblem}
-              alt="Rabeeyunil Awwal Mango Garden emblem"
+              src={gardenLogo}
+              alt="Rabeeyunil Awwal Mango Garden logo"
               width={1024}
               height={1024}
-              className="mx-auto w-40 md:w-52 h-auto mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
+              className="mx-auto w-44 md:w-56 h-auto mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
             />
 
             {/* Bismillah */}
@@ -147,12 +138,19 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Decorative tree with Islamic frame */}
+            {/* Decorative logo with Islamic frame */}
             <div className="relative aspect-square max-w-md mx-auto">
               <div className="absolute inset-0 rounded-3xl border-2 border-accent/30 rotate-45" />
               <div className="absolute inset-4 rounded-3xl border border-accent/20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <MangoTreeSilhouette className="w-3/4 h-3/4 text-primary animate-float" />
+              <div className="absolute inset-0 flex items-center justify-center p-10">
+                <img
+                  src={gardenLogo}
+                  alt="Rabeeyunil Awwal Mango Garden logo"
+                  width={1024}
+                  height={1024}
+                  className="w-3/4 h-3/4 object-contain animate-float"
+                  loading="lazy"
+                />
               </div>
               <IslamicStar className="absolute -top-2 -left-2 w-12 h-12 text-accent" />
               <IslamicStar className="absolute -bottom-2 -right-2 w-12 h-12 text-accent" />
@@ -186,11 +184,9 @@ export default function Index() {
                       {lineTrees.map(t => (
                         <Link key={t.id} to={`/tree/${t.id}`} title={`${t.id} · ${t.line_position} · ${t.health_status}`} className="group relative">
                           <div
-                            className="w-7 h-7 rounded-full flex items-center justify-center text-white hover:scale-125 transition-transform shadow-soft"
+                            className="w-7 h-7 rounded-full hover:scale-125 transition-transform shadow-soft"
                             style={{ background: healthDot(t.health_status) }}
-                          >
-                            <MangoLeaf className="w-3.5 h-3.5" />
-                          </div>
+                          />
                           <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-primary text-primary-foreground text-[10px] whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                             {t.id} · {t.line_position}
                           </div>
