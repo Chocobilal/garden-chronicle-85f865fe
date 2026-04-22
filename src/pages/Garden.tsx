@@ -70,8 +70,6 @@ export default function Garden() {
       {/* HEADER BANNER */}
       <section className="relative bg-gradient-leaf text-primary-foreground py-20 overflow-hidden">
         <div className="absolute inset-0 geo-pattern opacity-30" />
-        <MangoLeaf className="absolute -right-10 -top-10 w-72 h-72 text-accent/10" />
-        <MangoLeaf className="absolute -left-16 bottom-0 w-56 h-56 text-accent/5 rotate-180" />
         <div className="container relative">
           <nav className="text-xs font-sub text-primary-foreground/70 mb-4 flex items-center gap-1.5">
             <Link to="/" className="hover:text-accent">Home</Link>

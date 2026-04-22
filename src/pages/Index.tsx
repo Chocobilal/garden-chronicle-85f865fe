@@ -138,12 +138,19 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Decorative tree with Islamic frame */}
+            {/* Decorative logo with Islamic frame */}
             <div className="relative aspect-square max-w-md mx-auto">
               <div className="absolute inset-0 rounded-3xl border-2 border-accent/30 rotate-45" />
               <div className="absolute inset-4 rounded-3xl border border-accent/20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <MangoTreeSilhouette className="w-3/4 h-3/4 text-primary animate-float" />
+              <div className="absolute inset-0 flex items-center justify-center p-10">
+                <img
+                  src={gardenLogo}
+                  alt="Rabeeyunil Awwal Mango Garden logo"
+                  width={1024}
+                  height={1024}
+                  className="w-3/4 h-3/4 object-contain animate-float"
+                  loading="lazy"
+                />
               </div>
               <IslamicStar className="absolute -top-2 -left-2 w-12 h-12 text-accent" />
               <IslamicStar className="absolute -bottom-2 -right-2 w-12 h-12 text-accent" />
@@ -177,11 +184,9 @@ export default function Index() {
                       {lineTrees.map(t => (
                         <Link key={t.id} to={`/tree/${t.id}`} title={`${t.id} · ${t.line_position} · ${t.health_status}`} className="group relative">
                           <div
-                            className="w-7 h-7 rounded-full flex items-center justify-center text-white hover:scale-125 transition-transform shadow-soft"
+                            className="w-7 h-7 rounded-full hover:scale-125 transition-transform shadow-soft"
                             style={{ background: healthDot(t.health_status) }}
-                          >
-                            <MangoLeaf className="w-3.5 h-3.5" />
-                          </div>
+                          />
                           <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-primary text-primary-foreground text-[10px] whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                             {t.id} · {t.line_position}
                           </div>
