@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { GARDEN, LINES, type Tree, healthBadge, healthDot, formatDateShort } from "@/lib/garden";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { MangoLeaf, GeometricDivider } from "@/components/Decorations";
+import { GeometricDivider } from "@/components/Decorations";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -103,10 +103,8 @@ export default function Garden() {
                     <div className="flex-1 flex items-center gap-1.5 flex-wrap py-3 px-4 rounded-xl bg-sage/15 border border-sage/30">
                       {lt.map(t => (
                         <Link key={t.id} to={`/tree/${t.id}`} title={`${t.id} · ${t.line_position} · ${t.health_status}`} className="group relative">
-                          <div className="w-8 h-8 rounded-full flex items-center justify-center text-white hover:scale-125 transition-transform shadow-soft"
-                            style={{ background: healthDot(t.health_status) }}>
-                            <MangoLeaf className="w-4 h-4" />
-                          </div>
+                          <div className="w-8 h-8 rounded-full hover:scale-125 transition-transform shadow-soft"
+                            style={{ background: healthDot(t.health_status) }} />
                           <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-primary text-primary-foreground text-[10px] whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                             {t.id} · {t.line_position}
                           </div>

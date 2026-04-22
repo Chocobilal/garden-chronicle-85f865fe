@@ -14,7 +14,8 @@ import {
 } from "@/lib/garden";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { MangoLeaf, GeometricDivider } from "@/components/Decorations";
+import { GeometricDivider } from "@/components/Decorations";
+import gardenLogo from "@/assets/garden-logo.png";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -652,9 +653,7 @@ export default function TreeProfile() {
                 {/* Right: details */}
                 <div className="w-1/2 p-5 flex flex-col justify-between bg-gradient-cream">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground">
-                      <MangoLeaf className="w-4 h-4" />
-                    </div>
+                    <img src={gardenLogo} alt="" width={32} height={32} className="w-8 h-8 object-contain" />
                     <div className="leading-tight">
                       <div className="text-[8px] uppercase tracking-[0.2em] text-muted-foreground font-sub">
                         Rabeeyunil Awwal
