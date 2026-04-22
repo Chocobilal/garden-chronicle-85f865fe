@@ -5,12 +5,12 @@ import { GARDEN, LINES, type Tree, healthBadge, healthDot, formatDateShort } fro
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { FallingLeaves } from "@/components/FallingLeaves";
-import { GeometricDivider, IslamicStar, MangoLeaf, MangoTreeSilhouette, TwelvePointStar } from "@/components/Decorations";
+import { GeometricDivider, IslamicStar, TwelvePointStar } from "@/components/Decorations";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, ChevronDown, Droplets, MapPin, QrCode, Ruler, Smartphone, Trees as TreesIcon, Apple, Square } from "lucide-react";
-import gardenEmblem from "@/assets/garden-emblem.png";
+import gardenLogo from "@/assets/garden-logo.png";
 
 const Stat = ({ Icon, value, label }: { Icon: React.ComponentType<{ className?: string }>; value: string; label: string }) => (
   <div className="flex flex-col items-center gap-2 px-6 min-w-[140px]">
@@ -52,26 +52,17 @@ export default function Index() {
         <FallingLeaves />
         {/* Geometric pattern overlay */}
         <div className="absolute inset-0 geo-pattern opacity-30 pointer-events-none" />
-        {/* Tree silhouettes at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 flex items-end justify-around pointer-events-none opacity-30 text-primary-mid">
-          {Array.from({ length: 7 }).map((_, i) => (
-            <MangoTreeSilhouette
-              key={i}
-              className="h-32 md:h-44"
-              style={{ height: 80 + (i % 3) * 30 }}
-            />
-          ))}
-        </div>
+        {/* Geometric pattern handled above; tree silhouettes removed per design */}
 
         <div className="relative z-10 container text-center text-primary-foreground py-20">
           <div className="animate-fade-up">
-            {/* Garden emblem */}
+            {/* Garden logo */}
             <img
-              src={gardenEmblem}
-              alt="Rabeeyunil Awwal Mango Garden emblem"
+              src={gardenLogo}
+              alt="Rabeeyunil Awwal Mango Garden logo"
               width={1024}
               height={1024}
-              className="mx-auto w-40 md:w-52 h-auto mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
+              className="mx-auto w-44 md:w-56 h-auto mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.4)]"
             />
 
             {/* Bismillah */}
